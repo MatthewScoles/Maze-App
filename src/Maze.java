@@ -9,7 +9,7 @@ public class Maze {
 
 
 
-    public static boolean loadMaze(String filename){
+    public boolean loadMaze(String filename){
         Scanner scan = new Scanner(System.in);
         int numrows = Integer.parseInt(scan.nextLine());
         int numcols = numrows%10;
