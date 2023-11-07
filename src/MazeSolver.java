@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public abstract class MazeSolver{
 
-    Maze maze;
+    static Maze maze;
 
     abstract void makeEmpty();
 //create an empty worklist

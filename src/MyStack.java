@@ -29,7 +29,7 @@ public class MyStack<T> implements StackADT
             return null;
      }
 
-     public T top() throws NoSuchElementException{
+     public Square top() throws NoSuchElementException{
         if(!isEmpty()){
          try{
             return (T) (list.get(0));
@@ -60,6 +60,9 @@ public class MyStack<T> implements StackADT
             list.remove(i);
          }
       }
+
+      
+    
 
      
 }
