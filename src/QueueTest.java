@@ -2,7 +2,7 @@
 public class QueueTest {
      public static void main(String [] args)
         {
-            Square sq = new Square(1, 1, "L");
+            Square sq = new Square(1, 1, "L", null);
             MyQueue tester = new MyQueue();
             tester.size();
             tester.enqueue(1);

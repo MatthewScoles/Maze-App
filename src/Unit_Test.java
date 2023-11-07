@@ -10,7 +10,7 @@ public class Unit_Test {
 
         Maze test = new Maze();
 
-        Square sq = new Square(2, 2, "0");
+        Square sq = new Square(2, 2, "0", null);
 
         if(test.loadMaze(filename)){
 
