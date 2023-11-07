@@ -47,14 +47,26 @@ public abstract class MazeSolver{
     If the maze isn't solved, you should probably return a message indicating such.*/
     Square step(){
         Square current = next();
+        System.out.println(current.getRow() + " "+current.getCol());
+        if(current == null)
+            return null;
+
+        current.setType("o");
+
         if(current.getType()=="3")
             return current;
         ArrayList<Square> neighbors = maze.getNeighbors(current);
         for(Square s: neighbors){
-            if(s.getPrevious()== null)
+            System.out.println(s.getType());
+           if ((s.getType() == "O" || s.getType() == "3")) //&& s.getPrevious() == null)
+            {
                 s.setPrevious(current);
                 add(s);
+                System.out.println("hi");
+            }
         }
+                
+        
         return current;
     }
     /*perform one iteration of the algorithm above (i.e., steps 1 through 5) and return the Square that was just explored 

@@ -295,9 +295,9 @@
   	String oldType = solverType.getText();
   	if (oldType.equalsIgnoreCase("queue")) {
   	    solver = new MazeSolverQueue(this.maze);
-  	} //else if (oldType.equalsIgnoreCase("stack")) {
-  	    //solver = new MazeSolverStack(this.maze);
-  	//} 
+  	} else if (oldType.equalsIgnoreCase("stack")) {
+  	    solver = new MazeSolverStack(this.maze);
+  	} 
     else
   	    throw new UnsupportedOperationException("Don't know how to solve using a: " + oldType);
       }
@@ -331,8 +331,8 @@
       private void loadFile() {
 
   	  //Let the user pick from a filtered list of files
-  	JFileChooser chooser = new JFileChooser(new File("."));
-  	chooser.setFileFilter(new FileFilter() {
+  		JFileChooser chooser = new JFileChooser(new File("."));
+  		chooser.setFileFilter(new FileFilter() {
   	    String description = "Maze files";
 
   	    @Override

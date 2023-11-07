@@ -29,6 +29,10 @@ public class Square {
         return Previous;
     }
 
+    public void setType(String i){
+        this.type = i;
+    }
+
     public void setPrevious(Square sq){
         this.Previous = sq;
     }

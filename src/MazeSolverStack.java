@@ -61,6 +61,8 @@ public class MazeSolverStack extends MazeSolver{
 
     public Square step(){
         Square current = next();
+        if (current == null)
+            return null;
         if(current.getType()=="3")
             return current;
         ArrayList<Square> neighbors = maze.getNeighbors(current);
