@@ -51,6 +51,7 @@ public class Maze {
                     finish = sq;
             maze[row][col] = sq;
         } scan.nextLine();
+        
 
     }   scan.close();
 
@@ -101,7 +102,7 @@ public class Maze {
     }
      
     
-    public String tostring(){
+    public String toString(){
 
         String Maze = "";
         for (int row=0; row < this.numrows; row++) {

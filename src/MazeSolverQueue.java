@@ -21,11 +21,14 @@ public class MazeSolverQueue extends MazeSolver {
     }
     //return true if the worklist is empty
     public void add(Square sq){
+        
         queue.enqueue(sq);
+
     }
 
 //add the given Square to the worklist
     public Square next(){
+
         return (Square)(queue.dequeue());
     }
 

@@ -32,7 +32,7 @@ public class MyStack<T> implements StackADT
      public Square top() throws NoSuchElementException{
         if(!isEmpty()){
          try{
-            return (T) (list.get(0));
+            return (Square) (list.get(0));
          }
          catch (NoSuchElementException el){
             System.out.println("This is not an element");
