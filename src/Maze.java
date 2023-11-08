@@ -52,7 +52,7 @@ public class Maze {
             maze[row][col] = sq;
         } scan.nextLine();
 
-    }
+    }   scan.close();
 
          return true;
     }
