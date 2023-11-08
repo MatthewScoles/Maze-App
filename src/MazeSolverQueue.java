@@ -28,7 +28,6 @@ public class MazeSolverQueue extends MazeSolver {
 
 //add the given Square to the worklist
     public Square next(){
-
         return (Square)(queue.dequeue());
     }
 

@@ -1,6 +1,6 @@
-import java.io.File;
+
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Unit_Test {
 
@@ -28,7 +28,7 @@ public class Unit_Test {
 
             test.reset();
 
-            System.out.println(test.tostring());
+            System.out.println(test.toString());
 
         }
 

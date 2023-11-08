@@ -55,7 +55,8 @@ public class Square {
         if(this.type.equals("3")){
             return "E";
             }
-
+        if(this.type.equals("o"))
+            return "o";
         else{
             return type;
         }

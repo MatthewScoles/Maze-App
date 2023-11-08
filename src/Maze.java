@@ -107,7 +107,7 @@ public class Maze {
         String Maze = "";
         for (int row=0; row < this.numrows; row++) {
             for (int col=0; col < this.numcols; col++) {
-                Maze += this.maze[row][col].toString();
+                Maze += this.maze[row][col];
             }
 
             Maze += "\n";

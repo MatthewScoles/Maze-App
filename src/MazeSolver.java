@@ -34,6 +34,7 @@ public abstract class MazeSolver{
     You determine there is no such path (worklist is now empty)*/
     String getPath(){
         Square f = maze.getFinish();
+
         if (f.getPrevious() == null)
             return "No such path";
 
@@ -58,9 +59,11 @@ public abstract class MazeSolver{
             return null;
         }
         if (current.getType().equals("0"))
-            current.setType("o");
+            current.setType(".");
         if (current.getType().equals("3")){
             solved = true;
+            maze.getFinish().setPrevious(current);
+            return current;
         }
 
             System.out.println(current.getRow() + " "+ current.getCol() + " "+current.getType());
@@ -71,6 +74,8 @@ public abstract class MazeSolver{
             {
                 s.setPrevious(current);
                 add(s);
+                if(s.getType().equals("3"))
+                    System.out.println("hi");
             }
         }
 
