@@ -40,19 +40,19 @@ public class Square {
 
 
     public String toString(){
-       if(this.type == "0"){
+       if(this.type.equals("0")){
             return "_";
             }
             
-        if(this.type == "1"){
+        if(this.type.equals("1")){
             return "#";
             }
 
-        if(this.type == "2"){
+        if(this.type.equals("2")){
             return "S";
             }
 
-        if(this.type == "3"){
+        if(this.type.equals("3")){
             return "E";
             }
 
