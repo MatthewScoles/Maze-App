@@ -25,6 +25,10 @@ public class Square {
         return type;
     }
 
+    public String getOriginalType(){
+        return originalType;
+    }
+
     public Square getPrevious(){
         return Previous;
     }
@@ -64,7 +68,7 @@ public class Square {
     }
 
     public void Reset(){
-        type = originalType;
+        this.type = originalType;
     }
 
 }

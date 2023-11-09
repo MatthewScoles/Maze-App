@@ -88,6 +88,10 @@ public class Maze {
         return start;
     }
 
+    public void mazeSetType(String type, int row, int col){
+        this.maze[row][col].setType(type);
+    }
+
     public Square getFinish(){
         return finish;
     }
@@ -112,7 +116,6 @@ public class Maze {
 
             Maze += "\n";
         }
-        
             return Maze;
     }
 

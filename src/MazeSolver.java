@@ -74,9 +74,9 @@ public abstract class MazeSolver{
             {
                 s.setPrevious(current);
                 add(s);
-                if(s.getType().equals("3"))
-                    System.out.println("hi");
-            }
+                current.setType(".");
+                if(s.getType().equals("0"))
+                    s.setType("o");            }
         }
 
         return current;
