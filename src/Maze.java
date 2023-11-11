@@ -24,8 +24,9 @@ public class Maze {
         Scanner scan;
         try {
             scan = new Scanner(textfile);
-        } catch (FileNotFoundException e) {
-            
+        } catch(Exception e)
+        {
+            System.out.println("There was a problem with loading the maze");
             return false;
         }
 
@@ -63,12 +64,12 @@ public class Maze {
         ArrayList<Square> neighbors = new ArrayList<Square>();
 
         if (sq.getRow() != 0){
-            Square North = new Square(sq.getRow()- 1, sq.getCol(), maze[sq.getRow()][sq.getCol()].getType(), null);
+            Square North = new Square(sq.getRow()- 1, sq.getCol(), maze[sq.getRow()-1][sq.getCol()].getType(), null);
             neighbors.add(North);
         }
 
         if(sq.getRow() != maze.length-1){
-            Square South = new Square(sq.getRow()+ 1, sq.getCol(), maze[sq.getRow()][sq.getCol()].getType(), null);
+            Square South = new Square(sq.getRow()+ 1, sq.getCol(), maze[sq.getRow()+1][sq.getCol()].getType(), null);
             neighbors.add(South);
         }
         if(sq.getCol() != maze[1].length-1){

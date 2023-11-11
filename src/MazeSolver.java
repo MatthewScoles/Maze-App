@@ -37,7 +37,7 @@ public abstract class MazeSolver{
 
         if (f.getPrevious() == null)
             return "No such path";
-
+            maze.mazeSetType("x",f.getRow(), f.getCol());
         return getPath(f.getPrevious()) + " [" + f.getCol() + "," + f.getRow() + "]";
     }
 
@@ -46,7 +46,7 @@ public abstract class MazeSolver{
         if (s.getPrevious() == null)
             return "[" + s.getCol() + "," + s.getRow() + "]";
 
-        s.setType("x");
+        maze.mazeSetType("x",s.getRow(), s.getCol());
         return getPath(s.getPrevious()) + " [" + s.getCol() + "," + s.getRow() + "]";
     }
     /*Returns either a string of the solution path as a list of coordinates [i,j] from the start to the exit or a message indicating no such path exists
@@ -65,19 +65,26 @@ public abstract class MazeSolver{
             maze.getFinish().setPrevious(current);
             return current;
         }
-
-            System.out.println(current.getRow() + " "+ current.getCol() + " "+current.getType());
+            
+           // System.out.println(current.getRow() + " "+ current.getCol() + " "+current.getType());
         ArrayList<Square> neighbors = maze.getNeighbors(current);
         for (Square s : neighbors)
-        {
-            if ((s.getType().equals("0") || s.getType().equals("3")) && s.getPrevious() == null)
+        {   
+            //System.out.println(s.getOriginalType());
+            if ((s.getOriginalType().equals("0") || s.getType().equals("3")) && s.getPrevious() == null)
             {
                 s.setPrevious(current);
+                //System.out.println(s.getOriginalType());
                 add(s);
-                current.setType(".");
-                if(s.getType().equals("0"))
-                    s.setType("o");            }
+                if(s.getOriginalType().equals("0"))
+                    maze.mazeSetType("o", s.getRow(), s.getCol()); 
+                maze.mazeSetType(".",s.getPrevious().getRow(),s.getPrevious().getCol());
+                
+                       }
         }
+        current.setType(".");
+        
+    
 
         return current;
     }

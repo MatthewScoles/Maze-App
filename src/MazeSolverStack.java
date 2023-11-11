@@ -33,53 +33,5 @@ public class MazeSolverStack extends MazeSolver{
         return (Square) list.top();
         
     }
-
-
-    // everything below is copied from MazeSolver (Not sure if we need this in the class)
-
-
-    public boolean isSolved(){
-        boolean solve = false;
-         ArrayList<Square> neighbors = maze.getNeighbors(maze.getFinish());
-        for(Square s: neighbors){
-            if(s.getType()=="3")
-                solve = true;
-        }
-        return solve;
-    }
-
-    public String getPath(){
-        String path ="";
-        if(maze.getFinish().getPrevious()== null)
-            return "There is no solution";
-        else
-            for(Square sq = maze.getFinish(); sq.getPrevious()!= null; sq = sq.getPrevious()){
-                path += "["+sq.getRow() + ","+sq.getCol()+"]  ";
-            }
-        return path;
-    }
-
-    public Square step(){
-        Square current = next();
-        if (current == null)
-            return null;
-        if(current.getType()=="3")
-            return current;
-        ArrayList<Square> neighbors = maze.getNeighbors(current);
-        for(Square s: neighbors){
-            if(s.getPrevious()== null)
-                s.setPrevious(current);
-                add(s);
-        }
-        return current;
-    }
-
-    public void solve(){
-        while(isSolved()||!isEmpty()){
-            step();
-        }
-        System.out.println(getPath());
-
-}
 }
 
