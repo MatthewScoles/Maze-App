@@ -21,7 +21,7 @@ public class StackSolverTest {
         System.out.println(STACK.size());
         //print out 4
 
-       // System.out.println(STACK.top());
+        System.out.println(STACK.top());
         // hi again
 
         System.out.println(STACK.pop());
@@ -35,6 +35,9 @@ public class StackSolverTest {
 
         System.out.println(STACK.isEmpty());
         //false
+
+
+        // giving errors due to other classes, check once merged
 
 
 

@@ -6,14 +6,15 @@ public class MazeSolverStack extends MazeSolver{
     public MazeSolverStack(Maze maze){
         super(maze);
         
-        list = new MyStack<Square> ();
-        this.maze = maze;
+        makeEmpty();
 
+        maze.getStart().setPrevious(null);
+        add(maze.getStart());
 
     }
 
     public void makeEmpty(){
-        list = new MyStack<Square> ();
+        list = new MyStack<> ();
     }
 
     public boolean isEmpty(){
@@ -30,14 +31,14 @@ public class MazeSolverStack extends MazeSolver{
     }
 
     public Square next(){
-        return (Square) list.top();
+        return ( (Square) list.pop() );
         
     }
 
 
     // everything below is copied from MazeSolver (Not sure if we need this in the class)
 
-
+/** 
     public boolean isSolved(){
         boolean solve = false;
          ArrayList<Square> neighbors = maze.getNeighbors(maze.getFinish());
@@ -79,5 +80,6 @@ public class MazeSolverStack extends MazeSolver{
         System.out.println(getPath());
 
 }
+**/
 }
 

@@ -1,63 +1,61 @@
 import java.util.*;
+import java.util.NoSuchElementException;
+
+import org.w3c.dom.Node;
+
 
 public class MyStack<T> implements StackADT
 
 {
-    private ArrayList list;
-    T object;
+    private Node one;
+
+    private int len;
 
     public MyStack(){
-      list = new ArrayList<>();
+      len = 0;
+
+      one = null;
       
     }
 
      public void push(Object T){
-        list.add(object);
+        Node node = new Node();
+
+        node.data = T;
+        node.next = one;
+
+        this.one = node;
+
+        len++;
+
      }
 
-     public T pop() throws NoSuchElementException{
-         if(!isEmpty()){
-         try{
-            return (T) (list.remove(list.size()-1));
-            
-         }
-         catch(NoSuchElementException el){
-            System.out.println("This is not an element");
-            return null;
-         }}
-         else 
-            return null;
+     public Object pop(){
+         if (this.isEmpty())
+        {
+            throw new NoSuchElementException();
+        }
+        Object T = this.one.data;
+        this.one = this.one.next;
+        len--;
+        return T;
      }
 
-     public Square top() throws NoSuchElementException{
-        if(!isEmpty()){
-         try{
-            return (T) (list.get(0));
-         }
-         catch (NoSuchElementException el){
-            System.out.println("This is not an element");
-            return null;
-         }}
-      else
-         return null;
+     public Object top(){
+        return this.one.data;
      }
 
      public int size(){
-      return list.size();
+      return len;
      }
 
       public boolean isEmpty(){
-         if(list.size()==0){
-            return true;
-         }
-         else{
-            return false;
-         }
+         return this.one == null;
       }
 
       public void clear(){
-         for(int i = 0; i<list.size(); i++){
-            list.remove(i);
+         while(!((this.one)==null)){
+            pop();
          }
       }
 
