@@ -53,6 +53,7 @@ public abstract class MazeSolver{
     If the maze isn't solved, you should probably return a message indicating such.*/
     Square step(){
         Square current = next();
+        
         if (current == null)
         {
             // can't continue

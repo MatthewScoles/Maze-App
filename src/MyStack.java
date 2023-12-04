@@ -1,40 +1,26 @@
 
 import java.util.NoSuchElementException;
 
-class Node{
-    
-    Square data;
-    Node next;
-     Node(Square content){
-        this.data = content;
-        this.next = null;
-    }
-}
 
 
 public class MyStack<T> implements StackADT
 
 {
-    private Node node;
+    private Node first;
 
     private int len;
 
     public MyStack(){
-      len = 0;
-
-      node = null;
+      first = null;
       
     }
 
      public void push(Object el){
-      Node newNode = new Node();
+      Node<Object> newNode = new Node();
       newNode.data = el;
-      newNode.next = node;
-      this.node = newNode;
+      newNode.next = first;
+      this.first = newNode;
       len++;
-
-
-
      }
 
      public Object pop(){
@@ -42,14 +28,14 @@ public class MyStack<T> implements StackADT
       {
           throw new NoSuchElementException();
       }
-      Object element = this.node.data;
-      this.node = this.node.next;
+      Object element = this.first.data;
+      this.first = this.first.next;
       len--;
       return element;
      }
 
      public Object top(){
-        return this.node.data;
+        return this.first.data;
      }
 
      public int size(){
@@ -57,12 +43,18 @@ public class MyStack<T> implements StackADT
      }
 
       public boolean isEmpty(){
-         return this.node==null;
+         return this.first==null;
       }
 
       public void clear(){
-        while(!(this.node==null)){
+        while(!(this.first==null)){
          pop();
         }
       }
+
+        static class Node<T>
+    {
+        public T data;
+        public Node next;
+    }
 }

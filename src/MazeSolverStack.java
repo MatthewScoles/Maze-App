@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
 public class MazeSolverStack extends MazeSolver{
-    private MyStack list;
+    private MyStack<Square> list;
 
     public MazeSolverStack(Maze maze){
         super(maze);
         
         list = new MyStack<Square> ();
-        this.maze = maze;
 
 
     }
@@ -17,12 +16,7 @@ public class MazeSolverStack extends MazeSolver{
     }
 
     public boolean isEmpty(){
-        if(list.size()==0){
-            return true;
-        }
-        else{
-            return false;
-        }
+       return list.isEmpty();
     }
 
     public void add(Square sq){
@@ -30,7 +24,7 @@ public class MazeSolverStack extends MazeSolver{
     }
 
     public Square next(){
-        return (Square) list.top();
+        return (Square) list.pop();
         
     }
 }
