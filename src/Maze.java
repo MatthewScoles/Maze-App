@@ -15,20 +15,12 @@ public class Maze {
 
     public boolean loadMaze(String filename){
         
-        File textfile = new File(filename);
-
-        
-        
-        
         
         Scanner scan;
         try {
-            scan = new Scanner(textfile);
-        } catch(Exception e)
-        {
-            System.out.println("There was a problem with loading the maze");
-            return false;
-        }
+           
+            scan = new Scanner(new File(filename));
+
 
         
 
@@ -57,7 +49,11 @@ public class Maze {
     }   scan.close();
 
          return true;
-    }
+     } 
+        catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            return false;}
+        }
 
     public ArrayList<Square> getNeighbors(Square sq){
 

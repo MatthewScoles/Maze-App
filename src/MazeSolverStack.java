@@ -7,7 +7,7 @@ public class MazeSolverStack extends MazeSolver{
         super(maze);
         
         list = new MyStack<Square> ();
-
+        list.push(maze.getStart());
 
     }
 
